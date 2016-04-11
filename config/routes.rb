@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
 # Use resources for things that are backed by the databse
 
 # manual way of creating routes
@@ -13,7 +14,13 @@ Rails.application.routes.draw do
   # delete 'posts/:id' => 'posts#destroy'
   # post 'posts' => 'posts#create'
 
-resources :posts
+resources :posts do
+  resources :comments
+end
+
+root 'posts#index'
+
+
 
 
 
