@@ -1,4 +1,30 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+# Use resources for things that are backed by the databse
+
+# manual way of creating routes
+  # get 'posts' => 'posts#index'
+  # get 'posts/new' => 'posts#new'
+  # get 'posts/:id' => 'posts#show'
+  #   # as: 'post'  add helper to use this
+  # get 'posts/:id/edit' => 'posts#edit'
+
+  # patch 'posts/:id' => 'posts#update'
+  # delete 'posts/:id' => 'posts#destroy'
+  # post 'posts' => 'posts#create'
+
+resources :posts do
+  resources :comments
+end
+
+root 'posts#index'
+
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
